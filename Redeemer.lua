@@ -1,23 +1,23 @@
 --Saved VariablesPerCharacter: RedeemerDisplaySay, RedeemerDisplayParty, RedeemerDisplayRaid, RedeemerDisplayWhisper
 
 function Redeemer_OnLoad(self)
-	
+
 	self:RegisterEvent("ADDON_LOADED");
 	self:RegisterEvent("UNIT_SPELLCAST_SENT");
 	self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED");
 	self:RegisterEvent("PLAYER_DEAD");
 	self:RegisterEvent("PLAYER_ALIVE");
-	
+
 	SLASH_REDEEMER1 = "/redeemer";
 	SlashCmdList["REDEEMER"] = Redeemer_SlashOpts;
 end
 
 function Redeemer_OnEvent(self, event, ...)
-	
+
 	if (event == "ADDON_LOADED") then
 		local addon = select(1, ...);
 		if (addon == "Redeemer") then
-			DEFAULT_CHAT_FRAME:AddMessage("Redeemer is locked and loaded!", 0.25, 0.88, 0.88);
+			DEFAULT_CHAT_FRAME:AddMessage("Redeemer is locked and loaded! /redeemer for options.", 0.25, 0.88, 0.88);
 			--if an option setting is not found, set it to default
 			if (RedeemerDisplaySay == nil) then
 				DEFAULT_CHAT_FRAME:AddMessage("Redeemer /say option default  set |cffffffff[|cff00ff00on|cffffffff]", 0.25, 0.88, 0.88);
@@ -37,7 +37,7 @@ function Redeemer_OnEvent(self, event, ...)
 			end
 		end
 	end
-	
+
 	if (event == "UNIT_SPELLCAST_SENT") then
 		if (arg1 == "player") then
 			--DEFAULT_CHAT_FRAME:AddMessage("Spellcast: " .. arg1 .. arg2 .. arg3 .. arg4);
@@ -68,7 +68,7 @@ function Redeemer_OnEvent(self, event, ...)
 			end
 		end
 	end
-	
+
 	if (event == "COMBAT_LOG_EVENT_UNFILTERED") then
 		--if pet dies, gets pet's name
 		if (arg2 == "UNIT_DIED") then
@@ -77,24 +77,24 @@ function Redeemer_OnEvent(self, event, ...)
 			end
 		end
 	end
-	
+
 	if (event == "PLAYER_DEAD") then
 		if (HasSoulstone()) then
 			RedeemerHasSoulstone = true;
 		end
 	end
-	
+
 	if (event == "PLAYER_ALIVE") then
 		if (RedeemerHasSoulstone) then
 			RedeemerHasSoulstone = false;
 			Redeemer_Quotes("Self", "self");
 		end
 	end
-	
+
 end
 
 function Redeemer_Quotes(playerClass, target)
-	
+
 	--DEFAULT_CHAT_FRAME:AddMessage("Redeemer called: " .. playerClass .. target);
 	--SendChatMessage("Redeemer called!");
 	local chatMessage;
@@ -117,12 +117,12 @@ function Redeemer_Quotes(playerClass, target)
 	else
 		chatMessage = otherQuotes[random(#(otherQuotes))];
 	end
-	
+
 	chatMessage = string.gsub(chatMessage, "%%t", target);
-	
+
 	Redeemer_SendQuotes(chatMessage, target);
 	--quote = quote + 1;
-	
+
 end
 
 function Redeemer_SendQuotes(chatMessage, target)
@@ -134,17 +134,17 @@ function Redeemer_SendQuotes(chatMessage, target)
 	elseif (RedeemerDisplaySay) then
 		SendChatMessage(chatMessage, "SAY");
 	end
-	
+
 	if (RedeemerDisplayWhisper and string.upper(target) ~= "UNKNOWN") then
 		SendChatMessage(chatMessage, "WHISPER", nil, target);
 	end
-	
+
 end
 
 function Redeemer_SlashOpts(cmd)
 
 	cmd = string.lower(cmd);
-	
+
 	if (cmd == "say") then
 		RedeemerDisplaySay = not RedeemerDisplaySay;
 		sayText = "|cffffffff[";
@@ -155,7 +155,7 @@ function Redeemer_SlashOpts(cmd)
 		end
 		sayText = sayText.."|cffffffff]";
 		DEFAULT_CHAT_FRAME:AddMessage("Quotes sent to /say toggled "..sayText, 0.25, 0.88, 0.88);
-		
+
 	elseif (cmd == "party") then
 		RedeemerDisplayParty = not RedeemerDisplayParty;
 		partyText = "|cffffffff[";
@@ -166,7 +166,7 @@ function Redeemer_SlashOpts(cmd)
 		end
 		partyText = partyText.."|cffffffff]";
 		DEFAULT_CHAT_FRAME:AddMessage("Quotes sent to /party toggled "..partyText, 0.25, 0.88, 0.88);
-		
+
 	elseif (cmd == "raid") then
 		RedeemerDisplayRaid = not RedeemerDisplayRaid;
 		raidText = "|cffffffff[";
@@ -177,7 +177,7 @@ function Redeemer_SlashOpts(cmd)
 		end
 		raidText = raidText.."|cffffffff]";
 		DEFAULT_CHAT_FRAME:AddMessage("Quotes sent to /raid toggled "..raidText, 0.25, 0.88, 0.88);
-	
+
 	elseif (cmd == "whisper") then
 		RedeemerDisplayWhisper = not RedeemerDisplayWhisper;
 		whisperText = "|cffffffff[";
@@ -188,7 +188,7 @@ function Redeemer_SlashOpts(cmd)
 		end
 		whisperText = whisperText.."|cffffffff]";
 		DEFAULT_CHAT_FRAME:AddMessage("Quotes whispered to target toggled "..whisperText, 0.25, 0.88, 0.88);
-		
+
 	else
 		sayText = "|cffffffff[";
 		if (RedeemerDisplaySay) then
@@ -223,29 +223,29 @@ function Redeemer_SlashOpts(cmd)
 		DEFAULT_CHAT_FRAME:AddMessage("/redeemer raid: Toggle sending quotes to /raid "..raidText, 0.25, 0.88, 0.88);
 		DEFAULT_CHAT_FRAME:AddMessage("/redeemer whisper: Toggle whispering quotes to target "..whisperText, 0.25, 0.88, 0.88);
 	end
-		
+
 	--DEFAULT_CHAT_FRAME:AddMessage("Command: "..cmd);
-	
+
 end
 
 --Interface Options Panel functions
 --[[
 function RedeemerPanel_OnLoad(panel)
-		
+
 	panel.name = "Redeemer";
 	panel.okay = RedeemerPanel_Okay(panel);
 	panel.cancel = RedeemerPanel_Cancel(panel);
 	panel.default = RedeemerPanel_Default(panel);
 	InterfaceOptions_AddCategory(panel);
-	
+
 	RedeemerPanel_LoadSettings(panel);
-]]--	
---[[		
+]]--
+--[[
 	local quotesPanel = RedeemerQuotesPanel;
 	quotesPanel.name = "Redeemer Quotes";
 	quotesPanel.parent = "Redeemer";
 	InterfaceOptions_AddCategory(quotesPanel);
-	
+
 	local optionsPanel = RedeemerOptionsPanel;
 	optionsPanel.name = "Redeemer Options";
 	optionsPanel.parent = "Redeemer";
@@ -258,7 +258,7 @@ end
 function RedeemerPanel_LoadSettings(panel)
 
 	--defaults: DisplaySay = true, DisplayParty = false, DisplayRaid = false
-	
+
 	Redeemer_TestVars();
 
 	local panelName = panel:GetName();
@@ -266,20 +266,20 @@ function RedeemerPanel_LoadSettings(panel)
 	if (RedeemerDisplaySay == nil) then
 		RedeemerDisplaySay = true;
 	end
-	
+
 	if (RedeemerDisplayParty == nil) then
 		RedeemerDisplayParty = false;
 	end
-	
+
 	if (RedeemerDisplayRaid == nil) then
 		RedeemerDisplayRaid = false;
 	end
-	
+
 	getglobal(panelName.."CheckDisplaySay"):SetChecked(RedeemerDisplaySay);
 	getglobal(panelName.."CheckDisplayParty"):SetChecked(RedeemerDisplayParty);
 	getglobal(panelName.."CheckDisplayRaid"):SetChecked(RedeemerDisplayRaid);
-	
-	
+
+
 end
 
 function RedeemerPanel_Okay(panel)
@@ -289,31 +289,31 @@ function RedeemerPanel_Okay(panel)
 	setglobal("RedeemerDisplaySay", DisplaySay);
 	setglobal("RedeemerDisplayParty", DisplayParty);
 	setglobal("RedeemerDisplayRaid", DisplayRaid);
-	
+
 	RedeemerPanel_LoadSettings(panel);
-	
+
 end
 
 function RedeemerPanel_Cancel(panel)
 
 	local panelName = panel:GetName();
-	
+
 		DisplaySay = nil;
 		DisplayParty = nil;
 		DisplayRaid = nil;
-		
+
 		RedeemerPanel_LoadSettings(panel);
-		
+
 end
 
 function RedeemerPanel_Default(panel)
-	
+
 	setglobal("RedeemerDisplaySay", true);
 	setglobal("RedeemerDisplayParty", false);
 	setglobal("RedeemerDisplayRaid", false);
-	
+
 	RedeemerPanel_LoadSettings(panel);
-		
+
 end
 
 function Redeemer_TestVars()
@@ -321,7 +321,7 @@ function Redeemer_TestVars()
 	local say;
 	local party;
 	local raid;
-	
+
 	if (RedeemerDisplaySay) then
 		say = "1";
 	elseif (RedeemerDisplaySay == nil) then
@@ -343,7 +343,7 @@ function Redeemer_TestVars()
 	else
 		raid = "0";
 	end
-	
+
 	message(say..party..raid);
 
 end
