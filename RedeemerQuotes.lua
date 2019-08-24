@@ -73,7 +73,7 @@ combatQuotes = {		--Used when casting Rebirth
 	"Rezzing %t should aggro every bears.",
 	"Hey %t, think I should start using Amberseeds for this?",
 	"No loafing, %t.",
-	"Get of the floor %t, it's not time to AFK yet!"
+	"Get of the floor %t, it's not time to AFK yet!",
 	"BEHOLD! THE POWER OF FRUIT, %t!",
 
 }
@@ -151,8 +151,8 @@ noghoulQuotes = {	--Used when casting Raise Dead
 	"Reanimating a corpse...I think I'll call it GhoulPuff.",
 	"...and one day he'll be a real boy!",
 	"Don't panic...he can smell fear.",
-	"Raising the Fallen as Scourge for the Lich King!"
-	"I brought my own mini-Festergut!"
+	"Raising the Fallen as Scourge for the Lich King!",
+	"I brought my own mini-Festergut!",
 
 }
 
@@ -206,7 +206,7 @@ otherQuotes = {	--Used when casting Resurrection, Redemption, Ancestral Spirit, 
 	"%t, If you don't get up I'm stealing your shoes!",
 	"%t appears to have 404'd. Refreshing %t.",
 	"Ancient Spirits of Evil, transform this decayed form into a.......%t",
-	"%t, when you learn to stay out of AOE, THEN you have my permission to die..."
+	"%t, when you learn to stay out of AOE, THEN you have my permission to die...",
 	"Try some viagra %t, maybe you'll last longer.",
 	"Get off the floor, %t, it does not love you that way",
 	"Hey %t, I've calculated your chance of survival, but I don't think you'll like it.",
