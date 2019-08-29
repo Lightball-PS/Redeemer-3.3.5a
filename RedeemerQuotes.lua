@@ -37,6 +37,9 @@ noTargetQuotes = {	--These should not have "%t" in them.
 	"GETRESSED.COM GUARANTEED RESS. PAY LESS, TO GET MORE. ALL TRANSACTIONS SAFE AND SECURE!",
 	"How many times will you let yourself get slain?",
 	"Is that a bone in your pants or are you just happy to get ressed?",
+	"You humanoids are so fragile. One second you’re fine, the next second you’re a corpse on the floor.",
+	"If I'd 1 gold for every ress I do. I'd have.....5 gold.",
+	"The Twisting Nether is not yet ready for you my friend.",
 
 }
 
@@ -55,6 +58,11 @@ hunterQuotes = {		--Used when casting Revive Pet
 	"Claw claw bite! Claw claw...dead.",
 	"Get up you little sh!t, else I'll find a new pet.",
 	"%t!!! Don't just lie around there, minion! Get up and crush my enemies!",
+	"I can feel your anger %t... it gives you focus, it makes you stronger!",
+	"Who's a good boy? Is it you? Is it you? Yes, it is!",
+	"Do not meddle in the affairs of %t.. for you are crunchy and taste good with ketchup.",
+	"Here! %t here, fluffy wuffie dingy doggy!",
+	"Go Go Gadget Infernal!",
 
 }
 
@@ -75,6 +83,11 @@ combatQuotes = {		--Used when casting Rebirth
 	"No loafing, %t.",
 	"Get of the floor %t, it's not time to AFK yet!",
 	"BEHOLD! THE POWER OF FRUIT, %t!",
+	"That thing you just did, %t? Try not to do that.",
+	"Stop licking the ground , %t!",
+	"I find your lack of life disturbing, %t.",
+	"My gift to you, %t. A bigger repair bill.",
+	"Look's like %t's insurance premiums just went up again. ",
 
 }
 
@@ -90,7 +103,16 @@ warlockQuotes = {	--Used when casting Soulstone
 	"Stoning %t. Suicide is no longer an option for YOU.",
 	"Stoning %t. If you hate my rock, feel free to go to your nearest Death Knight",
 	"I heard you love to get stoned, so I will stone you, so you will be stoned, while you are stoned. Or something.",
-
+	"One of my precious soulstones is yours, %t. Do not squander it. Now, on your feet!",
+	"%t has failed at life, but with this soulstone I'm giving %t a second life. That's right, not God, ME!!",
+	"The hand of God has reached down and given you, %t, a second life!",
+	"%t, your subscription to Life is increased. Would you like eternal life?",
+	"Package for you, %t. Contents: One(1) soul.",
+	"Hey %t, I got your soul in my pocket. Please die somewhere safe.",
+	"%t, I KNEW that touching the shiny purple rock would get you stoned.",
+	"You see, %t, a soulstone is like Feign Death, but a LOT more sincere. Get it?",
+	"I condemn you, %t, to die twice, as your soul now is mine! muahaha!",
+	"sOuLsToNe %t...Sure! ",
 }
 
 selfQuotes = {		--Used when self-rezzing, as from a soulstone
@@ -224,4 +246,19 @@ otherQuotes = {	--Used when casting Resurrection, Redemption, Ancestral Spirit, 
 	"Is that a bone in your pants or are you just happy to get ressed, %t?",
 	"Bring back this soul from purgatory... Resurrection %t!",
 	"Bring %t back from the abyss of death... Resurrection!",
+	"%t fails at life. Literally",
+	"Your subscription to life has expored %t, would you to renew?",
+	"Quick %t, accept this ress before the necrophiliacs get here!",
+	"Rise and kick moar ass %t!",
+	"%t is here to kick bubblegum and chew ass. And we're all out of gum!",
+	"%t is here to kick ass and chew bubblegum. And we're all out of ass!",
+	"Hey, %t! Do you see anyone else fingerpainting? No? I guess this isn't kindergarten then. Naptime's over!",
+	"I felt a great disturbance in the Force, as if millions of voices suddenly cried out in terror and were suddenly silenced. I fear something terrible has happened... oh wait, no, that was just %t.",
+	"Resurrecting %t. By accepting this resurrection you hereby forfeiting your first born child. Please accept.",
+	"How's that ground taste, %t?",
+	"Congratulations %t, you passed the idiot test. You are now certified!",
+	"So you just figured you'd come here, to the most hostile environment known to men, with no training of any kind, and see how it went? What was going through your head, %t?",
+	"The name of the game is 'Stay Alive'. %t fails. But since you're cute, I'll give you another chance.",
+	"Expecto Patronum! Wait that's not right... Accio %t! Yeah that was it.",
+	"cAn YoU rEsS pLeAsE? What do you think I am, %t? A hea... Fair enough. Ressing %t",
 }
